@@ -29,7 +29,7 @@ public class JournalEntryContollerV2 {
     @GetMapping
     public ResponseEntity<?> getAll() {
         List<JournalEntry> entryList = journalEntryService.findAllEntry();
-        if(entryList != null && entryList.isEmpty()){
+        if(entryList != null && !entryList.isEmpty()){
             return new ResponseEntity<>(entryList, HttpStatus.OK);
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
