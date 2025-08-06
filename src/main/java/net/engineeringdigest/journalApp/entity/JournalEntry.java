@@ -1,30 +1,34 @@
 package net.engineeringdigest.journalApp.entity;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @RestController
 @RequestMapping("/journal")
 @Document
 public class JournalEntry {
     @Id
-    private String id;
+    private ObjectId id;
     private String title;
     private String content;
+    private LocalDateTime date;
 
-    public String getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
-    private String date;
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
@@ -43,7 +47,7 @@ public class JournalEntry {
         return title;
     }
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 

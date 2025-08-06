@@ -21,12 +21,8 @@ public class JournalEntryService {
         return journalEntryRepository.findAll();
     }
 
-    public JournalEntry findEntryById(String myId) {
-        if (journalEntryRepository.findById(myId).isPresent()) {
-            return journalEntryRepository.findById(myId).get();
-        } else {
-            return null;
-        }
+    public Optional<JournalEntry> findEntryById(String myId) {
+            return journalEntryRepository.findById(myId);
     }
 
     public void deleteEntryById(String myId) {
@@ -38,8 +34,6 @@ public class JournalEntryService {
             JournalEntry entry = journalEntryRepository.findById(myId).get();
             entry.setTitle(myEntries.getTitle());
             entry.setContent(myEntries.getContent());
-            entry.setDate(myEntries.getDate());
-
             journalEntryRepository.save(entry);
         }
     }
