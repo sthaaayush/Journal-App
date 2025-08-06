@@ -21,7 +21,7 @@ import net.engineeringdigest.journalApp.services.JournalEntryService;
 
 @RestController
 @RequestMapping("/journal")
-public class JournalEntryContollerV2 {
+public class JournalEntryControllerV2 {
 
     @Autowired
     private JournalEntryService journalEntryService;
@@ -50,6 +50,7 @@ public class JournalEntryContollerV2 {
     @GetMapping("/id/{myId}")
     public ResponseEntity<JournalEntry> getJournalEntryById(@PathVariable String myId) {
         Optional<JournalEntry> entry = journalEntryService.findEntryById(myId);
+        //noinspection OptionalIsPresent
         if (entry.isPresent()) {
             return new ResponseEntity<>(entry.get(), HttpStatus.OK);
         } else {

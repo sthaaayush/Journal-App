@@ -5,8 +5,6 @@ import lombok.Setter;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 @Document(collection = "journalEntry")
